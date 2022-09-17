@@ -26,19 +26,19 @@ const sum = values.reduce((total, item) => {
 
 const garages = [
   {
-    brand: 'BMW',
+    brand: "BMW",
     cars: 10,
   },
   {
-    brand: 'Fiat',
+    brand: "Fiat",
     cars: 20,
   },
   {
-    brand: 'Toyota',
+    brand: "Toyota",
     cars: 40,
   },
   {
-    brand: 'Volvo',
+    brand: "Volvo",
     cars: 1,
   },
 ];
@@ -50,37 +50,51 @@ const carSum = garages.reduce((total, { cars }) => {
 
 const products = [
   {
-    title: 'pudding',
+    title: "pudding",
     isInStock: false,
     quantity: 2,
     price: 20,
-    currency: 'NOK',
+    currency: "NOK",
   },
   {
-    title: 'cheese',
+    title: "cheese",
     isInStock: true,
     quantity: 5,
     price: 15,
-    currency: 'NOK',
+    currency: "NOK",
   },
   {
-    title: 'fish',
+    title: "fish",
     isInStock: true,
     quantity: 19,
     price: 40,
-    currency: 'NOK',
+    currency: "NOK",
   },
   {
-    title: 'milk',
+    title: "milk",
     isInStock: true,
     quantity: 10,
     price: 19,
-    currency: 'NOK',
+    currency: "NOK",
   },
 ];
 
 const productSum = products.reduce((total, { isInStock, price, quantity }) => {
-  return isInStock ? (total += price * quantity) : 0;
+  return isInStock ? (total += price * quantity) : total;
 }, 0);
 
+const totalCost = products.reduce(
+  (total, { isInStock, quantity, price }) =>
+    isInStock ? (total += price * quantity) : total,
+  0
+);
+
+const fruit = [100, 200, 300, 400, 500];
+
+console.log(totalCost);
 console.log(productSum);
+
+const asd = fruit.reduce((previousValue, value) => {
+  console.log("Previous value: ", previousValue, "Value: ", value);
+  return value;
+});
